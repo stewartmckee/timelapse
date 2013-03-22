@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Timelapse::VERSION
   spec.authors       = ["Stewart McKee"]
   spec.email         = ["stewart@theizone.co.uk"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Uses gphoto2 to interact with cameras to generate timelapses"
+  spec.summary       = "Uses gphoto2 to interact with cameras to generate timelapses"
   spec.homepage      = ""
   spec.license       = "MIT"
 
