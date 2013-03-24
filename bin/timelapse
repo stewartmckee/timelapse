@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'timelapse'
+require 'slop'
+
+opts = Slop.parse(:help => true) do
+  banner 'Usage: timelapse [options]'
+
+  on 'output=', 'folder to store images in'
+  on 'interval=', 'interval ie 30s'
+
+  on 'v', 'verbose', 'Display crawl information'
+end
+
+options = opts.to_hash.delete_if { |k, v| v.nil? || k == :url}
+
+Timelapse::Session.new.start(options)
