@@ -23,4 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "gphoto4ruby"
   spec.add_runtime_dependency "rufus-scheduler"
   spec.add_runtime_dependency "slop"
+  spec.add_runtime_dependency "aws-s3"
+  
 end

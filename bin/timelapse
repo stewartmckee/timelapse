@@ -11,10 +11,20 @@ opts = Slop.parse(:help => true) do
 
   on 'output=', 'folder to store images in'
   on 'interval=', 'interval ie 30s'
+  on 'ftp_server=', "server address for ftp"
+  on 'ftp_user=', "username for ftp (required if ftp_server specified)"
+  on 'ftp_password=', "password for ftp (required if ftp_server specified)"
+  on 'ftp_path=', "path to store files in, defaults to '/'"
+  on 's3_bucket=', "bucket name to store images in"
+  on 's3_access_key=', "S3 access key for uploading (required if s3_bucket specified)"
+  on 's3_secret_key=', "S3 secret key (required if bucket specified)"
+  on 'delete_after_upload'
 
   on 'v', 'verbose', 'Display crawl information'
 end
 
 options = opts.to_hash.delete_if { |k, v| v.nil? || k == :url}
+
+
 
 Timelapse::Session.new.start(options)
